@@ -1,0 +1,82 @@
+import {
+  Zap,
+  Brain,
+  Database,
+  MessageCircle,
+  Workflow,
+  BarChart3,
+  Clock,
+  Shield,
+} from 'lucide-react'
+
+export const SERVICES = [
+  {
+    id: 'ai-consulting',
+    icon: Brain,
+    title: 'AI Consulting & Strategy',
+    desc: 'Nous concevons votre feuille de route IA, alignée avec vos objectifs métier et vos capacités techniques.',
+    color: '#06b6d4',
+    glow: 'rgba(6,182,212,0.3)',
+    tags: ['Architecture', 'Stratégie', 'Roadmap'],
+  },
+  {
+    id: 'workflows',
+    icon: Workflow,
+    title: 'Autonomous Workflows',
+    desc: 'Automatisez vos processus avec n8n — des workflows complexes, scalables et maintenables en production.',
+    color: '#ff00ff',
+    glow: 'rgba(255,0,255,0.3)',
+    tags: ['n8n', 'Intégration', 'Automation'],
+  },
+  {
+    id: 'rag',
+    icon: Database,
+    title: 'Advanced RAG Systems',
+    desc: 'Créez des agents IA avec retrieval augmented generation entraînés sur vos données propriétaires.',
+    color: '#00ff00',
+    glow: 'rgba(0,255,0,0.3)',
+    tags: ['RAG', 'Vectorisation', 'Knowledge Base'],
+  },
+  {
+    id: 'chatbots',
+    icon: MessageCircle,
+    title: 'Intelligent Agentic Chatbots',
+    desc: 'Déployez des assistants multi-canaux avec compréhension NLP avancée pour le support client.',
+    color: '#fbbf24',
+    glow: 'rgba(251,191,36,0.3)',
+    tags: ['LLM', 'Support', 'Multi-channel'],
+  },
+]
+
+export const DEMOS = [
+  {
+    id: 'pipeline',
+    icon: Zap,
+    label: 'Workflow',
+    title: 'Live Form Submission Pipeline',
+    desc: 'Regardez votre contact traverser un workflow complet en temps réel — Notion, Email, Slack.',
+    color: '#06b6d4',
+    glow: 'rgba(6,182,212,0.5)',
+    tags: ['n8n', 'Notion', 'Email', 'Slack'],
+  },
+  {
+    id: 'chatbot',
+    icon: MessageCircle,
+    label: 'AI Chat',
+    title: 'AI Chatbot Support Widget',
+    desc: 'Interaction temps réel avec un agent IA simulant des appels API — Groq/OpenAI, webhooks.',
+    color: '#ff00ff',
+    glow: 'rgba(255,0,255,0.5)',
+    tags: ['LLM', 'Chatbot', 'Real-time'],
+  },
+  {
+    id: 'scoring',
+    icon: BarChart3,
+    label: 'Lead Scoring',
+    title: 'Automatic Lead Scoring Engine',
+    desc: 'Scoring dynamique basé sur plusieurs paramètres — voyez vos leads priorisés en temps réel.',
+    color: '#00ff00',
+    glow: 'rgba(0,255,0,0.5)',
+    tags: ['Scoring', 'Lead Gen', 'Analytics'],
+  },
+]

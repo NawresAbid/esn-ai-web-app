@@ -6,11 +6,6 @@ import PipelineForm from './PipelineForm'
 import WorkflowNode from './WorkflowNode'
 import TerminalSimulator from './TerminalSimulator'
 
-interface PipelineLog {
-  timestamp: string
-  message: string
-}
-
 export default function Module1LivePipelineExplorer() {
   const [isExecuting, setIsExecuting] = useState(false)
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
@@ -49,7 +44,25 @@ export default function Module1LivePipelineExplorer() {
     setCompletedSteps([])
     setLogs([])
 
-    // Simulate the workflow execution
+    // 🔥 Real webhook call to n8n
+    try {
+      await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL_CONTACT!, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          message: data.message,
+        }),
+      })
+    } catch (error) {
+      console.error('Webhook error:', error)
+    }
+
+    // Keep the same animation/simulation below (no changes)
     const executionLogs: string[] = [
       `[${new Date().toISOString()}] ✓ Webhook triggered for ${data.email}`,
       `[${new Date().toISOString()}] Processing contact: ${data.name} (${data.company})`,
@@ -59,10 +72,8 @@ export default function Module1LivePipelineExplorer() {
     for (let i = 0; i < workflowSteps.length; i++) {
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
-      // Update completed steps
       setCompletedSteps((prev) => [...prev, workflowSteps[i].id])
 
-      // Add log entries
       const newLogs = [
         ...executionLogs,
         `[${new Date().toISOString()}] ✓ Step ${i + 1}: ${workflowSteps[i].title}`,

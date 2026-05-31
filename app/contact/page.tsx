@@ -5,7 +5,7 @@ import ContactForm from '@/components/ContactForm'
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background/80">
+    <div className="min-h-screen bg-linear-to-br from-background via-background to-background/80">
       {/* Header Section */}
       <div className="max-w-4xl mx-auto px-6 py-20">
         <motion.div

@@ -11,13 +11,6 @@ interface ChatMessage {
   timestamp: Date
 }
 
-const BOT_RESPONSES = [
-  "Merci pour votre question! Basé sur vos données:\n- Priorité: HAUTE\n- Recommandation: Implémenter un RAG avancé\n- Temps estimé: 2-3 semaines",
-  "Excellente question! Voici mon analyse:\n- L'automatisation peut économiser 40% du temps\n- Intégration n8n recommandée\n- Coût d'implémentation: modéré",
-  "Je comprends votre demande. Voici les étapes:\n1. Audit du système existant\n2. Conception du workflow\n3. Implémentation et tests\n4. Déploiement en production",
-  "Parfait! Voici mes recommandations:\n- Utiliser Groq pour LLM rapide\n- Notion pour la base de données\n- Slack pour les notifications\n- n8n pour l'orchestration",
-]
-
 export default function Module2AIChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -41,7 +34,7 @@ export default function Module2AIChat() {
     e.preventDefault()
     if (!input.trim() || isLoading) return
 
-    // Add user message
+    // 1. Ajouter le message de l'utilisateur
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       text: input,
@@ -53,13 +46,43 @@ export default function Module2AIChat() {
     setInput('')
     setIsLoading(true)
 
-    // Simulate API processing
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL_CHATBOT
+    let botText = ''
 
-    // Add bot response
+    // 2. Appel strict au Webhook n8n
+    if (webhookUrl) {
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMessage.text }),
+        })
+
+      if (response.ok) {
+  const body = await response.json()
+  
+  // Cette ligne va lire directement la clé "output" renvoyée par n8n !
+  if (body && body.output) {
+    botText = String(body.output)
+  } else {
+    // Sécurité au cas où l'objet est structuré différemment
+    botText = typeof body === 'string' ? body : JSON.stringify(body)
+  }
+} else {
+  botText = `Erreur de l'agent n8n (Status ${response.status})`
+}
+      } catch (error) {
+        console.error('Erreur de communication avec n8n:', error)
+        botText = "Impossible de joindre l'agent IA. Vérifiez la connexion de votre serveur n8n."
+      }
+    } else {
+      botText = "Configuration manquante : NEXT_PUBLIC_N8N_WEBHOOK_URL_CHATBOT n'est pas définie."
+    }
+
+    // 3. Ajouter la réponse brute et exacte au chat
     const botMessage: ChatMessage = {
       id: (Date.now() + 1).toString(),
-      text: BOT_RESPONSES[Math.floor(Math.random() * BOT_RESPONSES.length)],
+      text: botText,
       sender: 'bot',
       timestamp: new Date(),
     }
@@ -124,7 +147,7 @@ export default function Module2AIChat() {
             >
               <div className="flex items-center gap-2" style={{ color: '#ff00ff' }}>
                 <Loader2 size={16} className="animate-spin" />
-                <span className="text-sm">Calling Groq/OpenAI APIs via Webhook...</span>
+                
               </div>
             </motion.div>
           )}

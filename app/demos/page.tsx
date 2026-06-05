@@ -16,13 +16,13 @@ export default function DemosPage() {
     label: string
     color: string
   }[] = [
-    { id: 'module1', label: 'Pipeline Explorer', color: '#06b6d4' },
-    { id: 'module2', label: 'AI Chatbot', color: '#ff00ff' },
-    { id: 'module3', label: 'Lead Scoring', color: '#00ff00' },
+    { id: 'module1', label: 'Automatisation Contact', color: '#06b6d4' },
+    { id: 'module2', label: 'Assistant IA', color: '#ff00ff' },
+    { id: 'module3', label: 'Scoring de Leads', color: '#00ff00' },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background/80">
+    <div className="min-h-screen bg-linear-to-br from-background via-background to-background/80">
       <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Header */}
         <motion.div
@@ -32,10 +32,10 @@ export default function DemosPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-            Interactive Demos
+            Nos Demos
           </h1>
           <p className="text-gray-400 text-lg">
-            Explore our three powerful n8n workflow demonstrations
+            Explorez nos demos en direct 
           </p>
         </motion.div>
 

@@ -33,7 +33,7 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background/80">
+    <div className="min-h-screen bg-linear-to-br from-background via-background to-background/80">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <motion.div
@@ -45,7 +45,7 @@ export default function ServicesPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
             Our{' '}
             <span
-              className="bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent"
+              className="bg-linear-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent"
               style={{
                 backgroundImage: 'linear-gradient(to right, #06b6d4, #ff00ff)',
               }}

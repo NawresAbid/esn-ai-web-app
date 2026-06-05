@@ -57,7 +57,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
           <p className="text-xs text-gray-600" style={{ fontFamily: "var(--font-inter)" }}>
-            © 2025 NEXUS AI · Tous droits réservés
+            © 2026 NEXUS AI · Tous droits réservés
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             {["Confidentialité", "CGU", "Mentions légales"].map((l) => (

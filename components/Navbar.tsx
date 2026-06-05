@@ -7,9 +7,12 @@ import { motion } from "framer-motion";
 import { Cpu, ArrowUpRight } from "lucide-react";
 
 const NAV_LINKS = [
+   { label: "Accueil",  href: "/" },
+  
   { label: "Services", href: "/services" },
   { label: "Démos",    href: "/demos" },
-  { label: "Contact",  href: "/contact" },
+  { label: "À propos", href: "/about" },
+ 
 ];
 
 export default function Navbar() {

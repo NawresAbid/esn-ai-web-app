@@ -120,7 +120,7 @@ export default function PipelineForm({
           </>
         ) : (
           <>
-            Déclencher l&apos;Automation ↗
+            Envoyer mon message 
             <Zap size={18} />
           </>
         )}

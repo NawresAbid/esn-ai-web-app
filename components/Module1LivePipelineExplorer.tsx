@@ -14,23 +14,23 @@ export default function Module1LivePipelineExplorer() {
   const workflowSteps = [
     {
       id: 1,
-      title: 'Trigger - Formulaire soumis',
-      description: 'Webhook trigger activated',
+      title: 'Votre message reçu',
+      
     },
     {
       id: 2,
-      title: 'Notion - Fiche contact créée',
-      description: 'Contact record created in Notion',
+      title: 'Fiche créée automatiquement',
+      
     },
     {
       id: 3,
-      title: 'Gmail - Email de bienvenue envoyé',
-      description: 'Welcome email sent via Gmail',
+      title: 'Email de confirmation envoyé',
+     
     },
     {
       id: 4,
-      title: 'Slack #ventes - Notification équipe',
-      description: 'Team notification posted to Slack',
+      title: 'Équipe notifiée en temps réel',
+      
     },
   ]
 
@@ -124,14 +124,14 @@ export default function Module1LivePipelineExplorer() {
 
         {/* Right Column: Pipeline Visualization */}
         <div className="glass-card p-6 rounded-lg border border-white/5">
-          <h3 className="text-xl font-bold mb-6">Pipeline d&apos;Automation</h3>
+          <h3 className="text-xl font-bold mb-6">Automatisation Contact</h3>
           <div className="space-y-6">
             {workflowSteps.map((step) => (
               <div key={step.id} className="relative">
                 <WorkflowNode
                   step={step.id}
                   title={step.title}
-                  description={step.description}
+                 
                   isActive={isExecuting && completedSteps.length >= step.id - 1}
                   isCompleted={completedSteps.includes(step.id)}
                 />

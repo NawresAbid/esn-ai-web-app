@@ -104,7 +104,7 @@ export default function Module2AIChat() {
       </div>
 
       {/* Chat Container */}
-      <div className="glass-card p-6 rounded-lg border border-white/5 flex flex-col h-[600px]">
+      <div className="glass-card p-6 rounded-lg border border-white/5 flex flex-col h-150">
         {/* Messages Area */}
         <div
           ref={scrollRef}

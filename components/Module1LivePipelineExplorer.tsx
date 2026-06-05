@@ -110,8 +110,8 @@ export default function Module1LivePipelineExplorer() {
       className="space-y-8"
     >
       <div>
-        <h2 className="text-3xl font-bold mb-2">Module 1: Live Form Submission Pipeline</h2>
-        <p className="text-gray-400">Watch your form submission flow through our automation pipeline in real-time</p>
+        <h2 className="text-3xl font-bold mb-2">Contactez-nous</h2>
+        <p className="text-gray-400">Votre message sera traité immédiatement</p>
       </div>
 
       {/* 2-Column Layout */}
@@ -124,7 +124,7 @@ export default function Module1LivePipelineExplorer() {
 
         {/* Right Column: Pipeline Visualization */}
         <div className="glass-card p-6 rounded-lg border border-white/5">
-          <h3 className="text-xl font-bold mb-6">Automatisation Contact</h3>
+          <h3 className="text-xl font-bold mb-6">Processus  Contact</h3>
           <div className="space-y-6">
             {workflowSteps.map((step) => (
               <div key={step.id} className="relative">

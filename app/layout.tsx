@@ -13,26 +13,13 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'ESN - AI & Advanced Automation',
   description: 'Empower your business with next-gen AI Agents and autonomous n8n workflows',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+  
+ icons: {
+    // This sets logo-esn.png as the main favicon for both light and dark modes
+    icon: '/logo-esn.png',
     apple: '/apple-icon.png',
   },
 }
-
 export default function RootLayout({
   children,
 }: Readonly<{
